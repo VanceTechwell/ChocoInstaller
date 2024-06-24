@@ -6,7 +6,31 @@ if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
 
 # List of software to install
 $packages = @(
-    "flashplayerplugin"
+    # Essentials
+    "googlechrome",
+    "firefox",
+    "vscode",
+    "python",
+    "nodejs",
+    "git",
+    "docker-desktop",
+    "powershell-core",
+    "powertoys",
+    "7zip.install",
+    "winrar",
+    "vlc",
+    "micorosoft-windows-terminal",
+
+    
+
+
+    # Work
+    "awscli",
+
+
+
+
+
 )
 
 # Initialize lists to track successful and failed installations
@@ -17,7 +41,7 @@ $failedInstallations = @()
 foreach ($package in $packages) {
     Write-Host "Installing $package..."
     try {
-        $result = choco install $package -y
+        $result = choco install $package -y --no-progress
         if ($result -match "installed 1/1" -or $result -match "Chocolatey installed") {
             $successfulInstallations += $package
         } else {

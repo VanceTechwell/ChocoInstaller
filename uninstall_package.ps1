@@ -6,8 +6,7 @@ if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
 
 # List of software to uninstall
 $packages = @(
-    "googlechrome",
-    "flashplayerplugin"
+    "zoom"
 )
 
 # Initialize lists to track successful and failed uninstallations
